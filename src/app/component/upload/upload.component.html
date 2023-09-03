@@ -1,0 +1,36 @@
+<div class="container">
+
+  <mat-toolbar [class]="progressBarClass">
+    <mat-progress-bar color="accent" [value]="progress"></mat-progress-bar>
+    <span class="progress">{{ progress }}%</span>
+  </mat-toolbar>
+
+  <mat-form-field class="form-upload">
+    <div>
+      <mat-toolbar>
+        <input matInput [value]="fileName" />
+
+        <button
+          mat-flat-button
+          color="primary"
+          [disabled]="!currentFile"
+          (click)="upload()"
+        >
+          Upload
+        </button>
+      </mat-toolbar>
+
+      <input
+        type="file"
+        id="fileInput"
+        (change)="fileSelected($event)"
+        name="fileInput"
+        accept=".xml"
+      />
+    </div>
+  </mat-form-field>
+
+  <mat-toolbar [class]="feedbackClass">
+    <span [style.color]="feedbackColor" class="feedback-message">{{ feedbackMessage }}</span>
+  </mat-toolbar>
+</div>
